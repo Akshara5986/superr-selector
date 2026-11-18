@@ -12,7 +12,16 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'data'
 FILES = ['ball_by_ball','matches','competitions','playing_eleven','teams','competition_team_player_mapping']
 app = FastAPI(title='SupeRR Selector · Intelligence API', version='0.2.0')
-app.add_middleware(CORSMiddleware, allow_origins=['http://localhost:5173','http://127.0.0.1:5173'], allow_methods=['*'], allow_headers=['*'])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'https://superr-selector-six.vercel.app',
+    ],
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 @lru_cache(maxsize=1)
 def inventory():

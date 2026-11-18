@@ -3,7 +3,7 @@ import{createRoot}from'react-dom/client';
 import{motion,AnimatePresence}from'framer-motion';
 import{LayoutDashboard,Database,Activity,Shield,SlidersHorizontal,Trophy,UploadCloud,Search,ArrowUpRight,ArrowRight,ChevronRight,PanelLeftClose,PanelLeftOpen,Menu,X,CheckCircle2,AlertCircle,FileSpreadsheet,Layers3,Download,BarChart3,ArrowLeftRight,Command,Info,RefreshCw}from'lucide-react';
 import './style.css';
-const API=import.meta.env.VITE_API_URL||'http://localhost:8000';
+const API=(import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : 'https://superr-selector-3wse.onrender.com')).replace(/\/$/, '');
 const nav=[['Overview',LayoutDashboard],['Data Studio',Database],['Player Explorer',Search],['Pressure Lab',Activity],['Comparison',ArrowLeftRight],['Rankings',Trophy],['Upload Center',UploadCloud]];
 const fmt=n=>Number(n||0).toLocaleString('en-IN');
 const slug=t=>t.toLowerCase().replaceAll(' ','-');
